@@ -25,24 +25,6 @@ namespace KitabGhar.Controllers
             return View(await _context.Categories.ToListAsync());
         }
 
-        // GET: Category/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var categoryModel = await _context.Categories
-                .FirstOrDefaultAsync(m => m.CategoryId == id);
-            if (categoryModel == null)
-            {
-                return NotFound();
-            }
-
-            return View(categoryModel);
-        }
-
         // GET: Category/Create
         public IActionResult Create()
         {
@@ -60,6 +42,7 @@ namespace KitabGhar.Controllers
             {
                 _context.Add(categoryModel);
                 await _context.SaveChangesAsync();
+                TempData["success"] = "Category Created Successfully";
                 return RedirectToAction(nameof(Index));
             }
             return View(categoryModel);
@@ -111,6 +94,7 @@ namespace KitabGhar.Controllers
                         throw;
                     }
                 }
+                TempData["success"] = "Category Updated Successfully";
                 return RedirectToAction(nameof(Index));
             }
             return View(categoryModel);
@@ -146,6 +130,7 @@ namespace KitabGhar.Controllers
             }
 
             await _context.SaveChangesAsync();
+            TempData["success"] = "Category Updated Successfully";
             return RedirectToAction(nameof(Index));
         }
 

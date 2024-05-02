@@ -4,12 +4,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<partial name="_Notification" />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">List of Categories</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary mx-2" asp-action="Create"><i class="bi bi-plus-circle"></i> Create New Category</a>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>
@@ -31,9 +41,8 @@
                 @Html.DisplayFor(modelItem => item.DisplayOrder)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
+                <a class="btn btn-primary mx-2" asp-action="Edit" asp-route-id="@item.CategoryId"><i class="bi bi-pencil-square"></i> Edit</a> |
+                <a class="btn btn-danger mx-2" asp-action="Delete" asp-route-id="@item.CategoryId"><i class="bi bi-trash3"></i> Delete</a>
             </td>
         </tr>
 }
