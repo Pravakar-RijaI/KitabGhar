@@ -16,16 +16,49 @@ namespace KitabGhar.Controllers
             _logger = logger;
             _context = context;
         }
-
-        public IActionResult Index()
+        
+        public IActionResult Index(string searchString)
         {
-            var applicationDbContext = _context.Products.Include(p => p.Category);
-            return View(applicationDbContext.ToList());
+            var products = from product in _context.Products
+                          select product;
+
+            if(!string.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.Title.Contains(searchString));
+                return View(products.ToList());
+            }
+
+            //var applicationDbContext = _context.Products.Include(p => p.Category);
+            return View(products.ToList());
+        }
+
+        public IActionResult ProductDetail(int productId)
+        {
+            var product = _context.Products.Find(productId);
+            return View(product);
         }
 
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult ShoppingCart(int productId)
+        {
+            var product = _context.Products.Find(productId);
+            return View(product);
+        }
+
+        public IActionResult ShoppingSummary(int productId)
+        {
+            var product = _context.Products.Find(productId);
+            return View(product);
+        }
+
+        public IActionResult ShoppingOrder(int productId)
+        {
+            var product = _context.Products.Find(productId);
+            return View(product);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
