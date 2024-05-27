@@ -1,9 +1,11 @@
 ﻿using KitabGhar.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using KitabGhar.Areas.Identity.Data;
 
 namespace KitabGhar.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -15,6 +17,12 @@ namespace KitabGhar.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            // Customize the ASP.NET Identity model and override the defaults if needed.
+            // For example, you can rename the ASP.NET Identity table names and more.
+            // Add your customizations after calling base.OnModelCreating(builder);
+
+
             modelBuilder.Entity<CategoryModel>().HasData(
             new CategoryModel { CategoryId = 1, CategoryName = "Fiction", DisplayOrder = 1},
             new CategoryModel { CategoryId = 2, CategoryName = "Fantasy", DisplayOrder = 2},
