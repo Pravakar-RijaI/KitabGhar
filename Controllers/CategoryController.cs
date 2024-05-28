@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KitabGhar.Data;
 using KitabGhar.Models;
+using Microsoft.AspNetCore.Authorization;
+using KitabGhar.Utility;
 
 namespace KitabGhar.Controllers
 {
+    [Authorize(Roles = StaticDetail.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _context;
