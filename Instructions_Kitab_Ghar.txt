@@ -1,0 +1,16 @@
+0.Open stripe on web
+1.search option
+2.get to detail
+3.login 
+4.redirect to register
+5.Register account
+6.buy now
+7.enter credentials
+8.redirects to success page
+
+Nonfiction
+https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1535419394i/4069.jpg
+Man’s Search for Meaning
+Psychiatrist Viktor Frankl's memoir has riveted generations of readers with its descriptions of life in Nazi death camps and its lessons for spiritual survival.
+Viktor E. Frankl
+B00K4B1WZZ
