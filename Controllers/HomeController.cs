@@ -1,5 +1,6 @@
 using KitabGhar.Data;
 using KitabGhar.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -32,6 +33,7 @@ namespace KitabGhar.Controllers
             return View(products.ToList());
         }
 
+        [Authorize]
         public IActionResult ProductDetail(int productId)
         {
             var product = _context.Products.Find(productId);

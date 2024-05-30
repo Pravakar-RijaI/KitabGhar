@@ -12,7 +12,7 @@ using KitabGhar.Utility;
 
 namespace KitabGhar.Controllers
 {
-    [Authorize(Roles = StaticDetail.Role_Admin)]
+    //[Authorize(Roles = StaticDetail.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;
