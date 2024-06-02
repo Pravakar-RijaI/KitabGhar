@@ -1,12 +1,16 @@
 ﻿@model ProductModel
 
+@{
+    ViewData["Title"] = "Cart";
+}
+
 <form method="post">
     <br />
     <div class="card shadow border-0">
         <div class="card-header bg-secondary bg-gradient text-light ml-0 py-4">
             <div class="row px-4">
                 <div class="col-6">
-                    <h5 class="pt-2 text-white">
+                    <h5 class="pt-2 text-danger">
                         Shopping Cart
                     </h5>
                 </div>
@@ -35,14 +39,15 @@
                             <div class="col-3 text-md-right pt-2 pt-md-4">
                                 <h6 class="fw-semibold">
                                     @Model.Price
-                                    <span class="text-muted">&nbsp;x&nbsp;</span>Count
+                                    <span class="text-muted">&nbsp;x&nbsp;</span>Quantity:
                                 </h6>
                             </div>
                             <div class="col-6 col-sm-4 col-lg-6 pt-2">
                                 <div class="w-75 btn-group" role="group">
+                                    @* <input type="number" min=0 /> *@
                                     <a class="btn btn-outline-primary bg-gradient py-2">
                                         <i class="bi bi-plus-square"></i>
-                                    </a> &nbsp;
+                                    </a> &nbsp;&nbsp;<h3>1</h3>&nbsp;&nbsp;
                                     <a class="btn btn-outline-primary bg-gradient py-2">
                                         <i class="bi bi-dash-square"></i>
                                     </a>
@@ -67,18 +72,18 @@
                     <div class="col-md-4 offset-md-4">
                         <ul class="list-group mb-4">
                             <li class="d-flex justify-content-between align-items-center">
-                                <h5 class="text-dark fw-semibold text-uppercase"> Total (USD)</h5>
-                                <h4 class="text-dark fw-bolder">$$</h4>
+                                <h5 class="text-dark fw-semibold text-uppercase"> Total Amount</h5>
+                                <h4 class="text-dark fw-bolder">Rs. 650</h4>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2 offset-md-5">
+                    @* <div class="col-md-2 offset-md-5">
                         <a href="#" class="btn btn-primary border-0 bg-gradient w-100 py-2">Summary</a>
-                    </div>
+                    </div> *@
                     <div class="col-md-2 offset-md-5">
-                        <a asp-controller="Home" asp-action="ShoppingSummary" class="btn btn-primary border-0 bg-gradient w-100 py-2">Checkout</a>
+                        <a asp-controller="Home" asp-action="ShoppingOrder" class="btn btn-primary border-0 bg-gradient w-100 py-2" asp-route-productId="@Model.Id">Checkout</a>
                     </div>
                 </div>
             </div>

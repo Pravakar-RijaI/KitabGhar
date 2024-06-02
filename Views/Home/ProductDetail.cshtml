@@ -61,9 +61,10 @@
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6 pb-1">
-                                <form asp-controller="Payment" asp-action="CreateCheckout" method="POST">
+                                    <a asp-action="ShoppingCart" class="btn btn-primary bg-gradient  w-100 py-2 text-uppercase fw-semibold" asp-route-productId="@Model.Id" >Add to Cart</a>
+                                @* <form asp-controller="Payment" asp-action="CreateCheckout" method="POST">
                                     <button type="submit" id="checkout-button" class="btn btn-primary bg-gradient  w-100 py-2 text-uppercase fw-semibold" >Buy Now</button>
-                                </form>
+                                </form> *@
                             </div>
                         </div>
                     </div>
